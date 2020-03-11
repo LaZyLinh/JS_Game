@@ -3,7 +3,7 @@ Geering Up - Quantum Computing Software Developer Role
 
 <b>Attempted option 1:</b> Add functionality to the buttons. Instead of simply using the arrow keys, modify the code such that your Qubit can move by pressing the buttons with the mouse:
 
-The given code seemed to hint at canvas.addEventListener(), but I decided that an HTML button element would give much better click area calculation, as well as be much more efficient performance-wise in comparison to constant re-rendering of shapes in canvas. Also, given the css stylesheet, it is much easier to consistently update the appearance/position of these buttons with HTML objects.
+The given code seemed to hint at canvas.addEventListener(), but I decided that an HTML button element would give much better click area calculation, as well as be much more efficient performance-wise in comparison to constant re-rendering of shapes in canvas. Also, given the css stylesheet, it is much easier to consistently update the appearance/position of these buttons with HTML objects. Also, a player's complaint could be that the buttons block the game screen. Having these buttons as HTML objects would allow for moving them outside of canvas for better player experience.
 
 
 <b>Added feature</b>: Reset button, (rudimentary) decaying probabilities of tunneling in resemblance to quantum tunneling theory:
