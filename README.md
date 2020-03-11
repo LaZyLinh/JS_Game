@@ -8,6 +8,6 @@ The given code seemed to hint at canvas.addEventListener(), but I decided that a
 
 <b>Added feature</b>: Reset button, (rudimentary) decaying probabilities of tunneling in resemblance to quantum tunneling theory:
 
-A reset button was added so that players can restart the game without having to refresh browser. Some code refactoring was done to enable these changes. The wave function during quantum tunneling could have been calculated to decay proportionally to barrier width and proper wave function's decaying behavior, but given the amount of barriers, the proper decaying function most likely decays too fast to be fun. So I decided that the more rudimentary approach of probability decaying by 1/x (with x = 4 + # successful tunneling attempts) being a good enough punishment for those spamming the tunneling option! 
+A reset button was added so that players can restart the game without having to refresh browser. Some code refactoring was done to enable these changes. The chance of successful tunneling is changed to decrease over time. The wave function during tunneling could have been calculated to decay proportionally to barrier width and proper wave function's decaying behavior, but given the amount of barriers, the proper decaying function most likely decays too fast to be fun. So I decided that the more rudimentary approach of probability decaying by 1/x (with x = 4 + # successful tunneling attempts) being a good enough punishment for those spamming the tunneling option! 
 
 
