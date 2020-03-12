@@ -16,19 +16,19 @@ class Particle {
 		for (var particleA = 0; particleA < this.mass.length; particleA++) {
 		var accelerationX = 0, accelerationY = 0;
 		
-		for (var particleB = 0; particleB < this.mass.length; particleB++) {
-			if (particleA != particleB) {
-				var distanceX = this.positionX[particleB] - this.positionX[particleA];
-				var distanceY = this.positionY[particleB] - this.positionY[particleA];
+			for (var particleB = 0; particleB < this.mass.length; particleB++) {
+				if (particleA !== particleB) {
+					var distanceX = this.positionX[particleB] - this.positionX[particleA];
+					var distanceY = this.positionY[particleB] - this.positionY[particleA];
 
-				var distance = sqrt(distanceX * distanceX + distanceY * distanceY);
-				if (distance < 1) distance = 1;
+					var distance = sqrt(distanceX * distanceX + distanceY * distanceY);
+					if (distance < 1) distance = 1;
 
-				var force = (distance - 320) * this.mass[particleB] / distance;
-				accelerationX += force * distanceX;
-				accelerationY += force * distanceY;
+					var force = (distance - 320) * this.mass[particleB] / distance;
+					accelerationX += force * distanceX;
+					accelerationY += force * distanceY;
+				}
 			}
-		}
 		
 		this.velocityX[particleA] = this.velocityX[particleA] * 0.99 + accelerationX * this.mass[particleA];
 		this.velocityY[particleA] = this.velocityY[particleA] * 0.99 + accelerationY * this.mass[particleA];

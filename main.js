@@ -77,8 +77,8 @@ const resetId = "reset";
 function setup() {
 	let cvs = createCanvas(700,500);
 	cvs.id("canvas");
-	qubit = new Qubit();
 	particle = new Particle();
+	qubit = new Qubit(particle);
 	barrier = [];						// default states now declared in setup() to enable resetting the game
 	barrier.push(new Barrier());
 	score = 0;
@@ -248,6 +248,8 @@ function addNewParticle() {
 		particle.positionY.push(random(-500, 500));
 		particle.velocityX.push(0);
 		particle.velocityY.push(0);
+
+		qubit.particle = particle;	// update Qubit particle
 	}
 //================================ ========================== ============================
 

@@ -1,16 +1,37 @@
+const range = 5;  // range around particle that triggers interaction with qubit
+const interact = 1; // energy gained/lost from interaction
+
 class Qubit {
-	
-	constructor() {
-		
+
+	constructor(particle) {
+		this.particle = particle;
+		this.haveInteracted = [];	// list of particles that qubit has interacted with
 		this.x = width/5;
 		this.y = height/3;
 		this.ySpeed=0;
 		this.scl=20;
-
 	}
 
 	// Rendering the Qubit
 	update() {
+
+		// If qubit collides with other particles, there's random 50-50 chance of absorption/emission
+		for (let p = 0; p < this.particle.mass.length; p++) {
+
+			// if qubit comes in range of a particle
+			// wants only 1 interaction/particle, else constant update will cause too much erratic change of ySpeed
+			if (!this.haveInteracted.includes(p) &&
+				this.x > this.particle.positionX[p] - range && this.x < this.particle.positionX[p] + range
+				&& this.y > this.particle.positionY[p] - range && this.y > this.particle.positionY[p] + range) {
+				let num = int(random(0, 1));
+				if (num === 0) {
+					this.ySpeed -= interact;	// absorption by interact amount of energy
+				} else {
+					this.ySpeed += interact;	// emission by interact amount of energy
+				}
+				this.haveInteracted.push(p);
+			}
+		}
 		
 		this.ySpeed += gravity;
 		this.y += this.ySpeed;
